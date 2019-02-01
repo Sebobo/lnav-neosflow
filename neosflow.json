@@ -1,0 +1,49 @@
+{
+    "neos_flow": {
+        "title": "Neos Flow Logfile",
+        "description": "Log file format for Neos Flow (neos.io)",
+        "url": "https://helzle.it",
+        "regex": {
+            "flow": {
+                "pattern": "^(?<timestamp>\\d{2}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\\s[\\d]+)\\s*(?<ip>[\\d:]+)?\\s*(?<level>\\w+)\\s*(?<package>[\\w]+)\\s*(?<body>.*)"
+            }
+        },
+        "timestamp-format": [
+            "%y-%m-%d %H:%M:%S %6"
+        ],
+        "level": {
+            "error": "ERROR",
+            "warning": "WARNING",
+            "info": "INFO",
+            "debug": "DEBUG"
+        },
+        "value": {
+            "package": {
+                "kind": "string",
+                "identifier": true
+            },
+            "ip": {
+                "kind": "string",
+                "identifier": true
+            }
+        },
+        "sample": [
+            {
+                "line": "19-02-01 09:23:37 31547      DEBUG     Flow                 CSRF: No token required, safe request",
+                "level": "debug"
+            },
+            {
+                "line": "19-02-01 09:23:37 31547      ::1            INFO      Flow                 Decided \"GRANTED\" on privilege \"TYPO3.Neos:Backend.Module.User.UserSettings\".",
+                "level": "info"
+            },
+            {
+                "line": "19-02-01 09:23:37 31547      DEBUG     Flow                 No trans-unit element with the id \"Google Analytics configuration\" was found in resource://TYPO3.Neos/Private/Translations/en/Main.xlf. Either this translation has been removed or the id in the code or template referring to the translation is wrong.",
+                "level": "debug"
+            },
+            {
+                "line": "19-02-01 09:50:28 40933      ERROR     MyPackage        No controller could be resolved which would match your request. Package key: \"my.package\", controller name: \"example\". (GET http://example.org)",
+                "level": "error"
+            }
+        ]
+    }
+}
