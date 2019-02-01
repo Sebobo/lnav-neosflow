@@ -5,11 +5,11 @@
         "url": "https://helzle.it",
         "regex": {
             "flow": {
-                "pattern": "^(?<timestamp>\\d{2}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}\\s[\\d]+)\\s*(?<ip>[\\d:]+)?\\s*(?<level>\\w+)\\s*(?<package>[\\w]+)\\s*(?<body>.*)"
+                "pattern": "^(?<timestamp>\\d{2}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2})\\s*(?<processid>[\\d]+)?\\s*(?<ip>[\\d:]+)?\\s*(?<level>\\w+)\\s*(?<package>[\\w]+)\\s*(?<body>.*)"
             }
         },
         "timestamp-format": [
-            "%y-%m-%d %H:%M:%S %6"
+            "%y-%m-%d %H:%M:%S"
         ],
         "level": {
             "error": "ERROR",
@@ -20,6 +20,10 @@
         "value": {
             "package": {
                 "kind": "string",
+                "identifier": true
+            },
+            "processid": {
+                "kind": "integer",
                 "identifier": true
             },
             "ip": {
